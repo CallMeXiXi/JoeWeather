@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">JoeWeather</string>
     <string name="alert">加载中...</string>
+    <string name="share">分享</string>
+    <string name="seven">未来7天</string>
+    <string name="city_manage">城市管理</string>
+    <string name="city_warn">城市预警</string>
+    <string name="sure">确定</string>
+    <string name="cancle">取消</string>
+    <string name="relocatCity">重新定位城市</string>
 </resources>
