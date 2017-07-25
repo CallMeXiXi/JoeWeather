@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,8 +19,9 @@
             android:id="@+id/ctl_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
             app:contentScrim="#00000000"
+            android:clipToPadding="false"
+            android:fitsSystemWindows="true"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -33,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
                 android:background="#00000000"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="@dimen/toolbar_padding_top"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:popupTheme="@style/OverflowMenuStyle" />
