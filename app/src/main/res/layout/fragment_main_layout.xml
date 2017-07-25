@@ -6,83 +6,92 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.example.joe_pc.joeweather.view.TouchEventLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/md_grey_400">
+    <!--<com.example.joe_pc.joeweather.view.TouchEventLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/md_grey_400">-->
 
         <ImageView
             android:id="@+id/iv_bg_weather"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/ic_launcher" />
-    </com.example.joe_pc.joeweather.view.TouchEventLayout>
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_weather" />
+    <!--</com.example.joe_pc.joeweather.view.TouchEventLayout>-->
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
-        android:gravity="center">
+        android:layout_marginTop="80dp"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="48dp">
 
         <TextView
             android:id="@+id/tv_weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="大雨"
+            android:text="晴"
+            android:textColor="@color/md_white_1000"
             android:textSize="24sp" />
 
         <ImageView
             android:id="@+id/iv_weather_icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@id/tv_weather"
             android:scaleType="fitCenter"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/qing_icon" />
+
+        <RelativeLayout
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@+id/iv_weather_icon"
+            android:background="@drawable/bg_air"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_air"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33 优"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+        </RelativeLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="178dp"
-        android:gravity="center">
+        android:layout_height="120dp"
+        android:layout_marginTop="110dp"
+        android:gravity="left"
+        android:paddingLeft="24dp">
 
         <TextView
             android:id="@+id/tv_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="21°"
+            android:text="23°"
+            android:textColor="@color/md_white_1000"
             android:textSize="100sp" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="84dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/bg_air"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/tv_air"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="优"
-            android:textSize="24sp" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_weather"
             android:layout_width="match_parent"
-            android:layout_height="96dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="2dp"
             app:layoutManager="LinearLayoutManager"
-            tools:listitem="@layout/item_weather_now_layout"></android.support.v7.widget.RecyclerView>
+            tools:listitem="@layout/item_weather_now_layout" />
     </LinearLayout>
 </FrameLayout>

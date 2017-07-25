@@ -19,6 +19,8 @@ import com.orhanobut.logger.Logger;
 
 public class LocationCityReceiver extends BroadcastReceiver {
 
+    private long oldTime;
+    private String oldCityName;
     private MainActivity mActivity;
     private LocationReceiverCallback callback;
 
@@ -35,6 +37,7 @@ public class LocationCityReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         mActivity = MainActivity.getInstance();
+        callback = mActivity;
         initLocation(context);
     }
 
@@ -75,12 +78,18 @@ public class LocationCityReceiver extends BroadcastReceiver {
         public void onLocationChanged(AMapLocation aMapLocation) {
             if (aMapLocation != null) {
                 if (aMapLocation.getErrorCode() == 0) {
-                    Logger.d("城市名称：" + aMapLocation.getCity());
                     String cityName = aMapLocation.getCity();
-                    String oldCityName = SharePreferenceUtils.getSharePerferences(mActivity);
-                    if (!oldCityName.equals(cityName)) {//定位成功，回传修改UI
-                        SharePreferenceUtils.setSharePerferences(mActivity, cityName);
-                        callback.updateUI(cityName);
+                    long newTime = System.currentTimeMillis();
+                    oldCityName = SharePreferenceUtils.getSharePreferencesCityName(mActivity);
+                    oldTime = SharePreferenceUtils.getSharePreferencesOldTime(mActivity);
+
+                    if (!oldCityName.equals(cityName)) {//定位成功且城市不一致，回传修改UI
+//                        SharePreferenceUtils.setSharePreferencesCityName(mActivity, cityName);
+                        callback.updateUI(cityName, true);
+                    } else if (newTime - oldTime > 3600000) {//超过1小时也要回传刷新UI
+                        oldTime = newTime;
+                        SharePreferenceUtils.setSharePreferencesOldTime(mActivity, oldTime);
+                        callback.updateUI(cityName, false);
                     }
                 } else {
                     //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。

@@ -8,4 +8,6 @@
     <string name="sure">确定</string>
     <string name="cancle">取消</string>
     <string name="relocatCity">重新定位城市</string>
+    <string name="no_network">没开网络还敢调戏朕...</string>
+    <string name="dailt_forecast">短时预报</string>
 </resources>

@@ -35,7 +35,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         //定义沉浸式状态显示
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
+            Window window = getWindow();//FLAG_TRANSLUCENT_STATUS
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -45,8 +45,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
             window.setStatusBarColor(Color.TRANSPARENT);
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
-
-        Logger.d(Constants.ACTIVITY_NAME + getResources().getClass().getName());
     }
 
     @Override
@@ -64,7 +62,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
             window.setStatusBarColor(Color.TRANSPARENT);
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
-        Logger.d(Constants.ACTIVITY_NAME + getResources().getClass().getName());
     }
 
     @Override

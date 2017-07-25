@@ -1,5 +1,7 @@
 package com.example.joe_pc.joeweather.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -13,6 +15,7 @@ public class BasicBean implements Serializable {
     private String id;
     private String lat;
     private String lon;
+    @SerializedName("update")
     private UpdateBean update;
     public void setCity(String city) {
         this.city = city;

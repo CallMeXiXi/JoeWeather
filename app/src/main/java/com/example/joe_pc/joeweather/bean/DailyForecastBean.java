@@ -1,5 +1,7 @@
 package com.example.joe_pc.joeweather.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,16 +11,21 @@ import java.util.Date;
 
 public class DailyForecastBean implements Serializable {
 
+
+    @SerializedName("astro")
     private AstroBean astro;
+    @SerializedName("cond")
     private CondBean cond;
-    private Date date;
+    private String date;
     private String hum;
     private String pcpn;
     private String pop;
     private String pres;
+    @SerializedName("tmp")
     private TempBean temp;
     private String uv;
     private String vis;
+    @SerializedName("wind")
     private WindBean wind;
 
     public void setAstro(AstroBean astro) {
@@ -37,11 +44,11 @@ public class DailyForecastBean implements Serializable {
         return cond;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 

@@ -6,7 +6,7 @@ package com.example.joe_pc.joeweather.comments;
  */
 
 public interface LocationReceiverCallback {
-    void updateUI(String cityName);
+    void updateUI(String cityName, boolean replaceCityName);
 
     void failed();
 }

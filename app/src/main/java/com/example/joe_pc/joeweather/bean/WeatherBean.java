@@ -19,6 +19,22 @@ public class WeatherBean implements Serializable {
     private List<DailyForecastBean> dailyForecast;
     @SerializedName("status")
     private String status;
+    @SerializedName("aqi")
+    private AqiBean aqi;
+    @SerializedName("hourly_forecast")
+    private List<HourlyForecastBean> hourlyForecast;
+    @SerializedName("suggestion")
+    private SuggestionBean suggestion;
+    @SerializedName("alarms")
+    private List<AlertBean> alert;
+
+    public void setAlarms(List<AlertBean> alarms) {
+        this.alert = alarms;
+    }
+
+    public List<AlertBean> getAlarms() {
+        return this.alert;
+    }
 
     public void setBasic(BasicBean basic) {
         this.basic = basic;
@@ -50,5 +66,29 @@ public class WeatherBean implements Serializable {
 
     public String getStatus() {
         return status;
+    }
+
+    public AqiBean getAqi() {
+        return aqi;
+    }
+
+    public void setAqi(AqiBean aqi) {
+        this.aqi = aqi;
+    }
+
+    public List<HourlyForecastBean> getHourlyForecast() {
+        return hourlyForecast;
+    }
+
+    public void setHourlyForecast(List<HourlyForecastBean> hourlyForecast) {
+        this.hourlyForecast = hourlyForecast;
+    }
+
+    public SuggestionBean getSuggestion() {
+        return suggestion;
+    }
+
+    public void setSuggestion(SuggestionBean suggestion) {
+        this.suggestion = suggestion;
     }
 }

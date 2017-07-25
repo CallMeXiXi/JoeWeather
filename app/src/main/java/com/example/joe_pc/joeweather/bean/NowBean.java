@@ -1,5 +1,7 @@
 package com.example.joe_pc.joeweather.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -8,18 +10,21 @@ import java.io.Serializable;
 
 public class NowBean implements Serializable{
 
-    private CondBean cond;
+    @SerializedName("cond")
+    private CondNowBean cond;
     private String fl;
     private String hum;
     private String pcpn;
     private String pres;
     private String tmp;
     private String vis;
+    @SerializedName("wind")
     private WindBean wind;
-    public void setCond(CondBean cond) {
+
+    public void setCond(CondNowBean cond) {
         this.cond = cond;
     }
-    public CondBean getCond() {
+    public CondNowBean getCond() {
         return cond;
     }
 

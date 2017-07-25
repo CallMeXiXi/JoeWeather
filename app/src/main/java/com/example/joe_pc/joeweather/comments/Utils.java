@@ -9,6 +9,7 @@ import android.net.Network;
 import android.net.NetworkInfo;
 
 import com.amap.api.location.AMapLocation;
+import com.example.joe_pc.joeweather.R;
 
 /**
  * 辅助工具类
@@ -97,5 +98,30 @@ public class Utils {
             }
         }
         return -1;
+    }
+
+    public static int getWeatherIcon(int code) {
+        int str = R.drawable.clear;
+        switch (code) {
+            case 100:
+                str = R.drawable.clear;
+                break;
+            case 101:
+                str = R.drawable.icon_cloudy;
+                break;
+            case 104:
+                str = R.drawable.icon_overcast;
+                break;
+            case 302:
+                str = R.drawable.icon_thundershower;
+                break;
+            case 305:
+                str = R.drawable.icon_light_rain;
+                break;
+            case 307:
+                str = R.drawable.icon_heavy_rain;
+                break;
+        }
+        return str;
     }
 }

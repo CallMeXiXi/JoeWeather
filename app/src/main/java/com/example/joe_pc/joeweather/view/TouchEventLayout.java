@@ -50,6 +50,6 @@ public class TouchEventLayout extends LinearLayout {
     }
 
     private void changeAlpha(float start, float end) {
-        ObjectAnimator.ofFloat(this, "alpha", start, end).setDuration(500).start();
+        ObjectAnimator.ofFloat(this, "alpha", start, end).setDuration(5000).start();
     }
 }

@@ -17,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets{
+        main{
+            java.srcDirs=['src/main/java', 'src/main/green_dao']
+        }
+    }
 }
 
 dependencies {
@@ -27,7 +32,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:support-annotations:24.1.1'
-    compile 'com.orhanobut:Logger:1.1'
+    compile 'com.orhanobut:logger:1.15'
     compile 'com.android.support:design:23.1.1'
     compile 'io.reactivex:rxjava:1.2.7'
     compile 'io.reactivex:rxandroid:1.2.1'
@@ -35,4 +40,7 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
     compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'de.greenrobot:greendao:2.1.0'
+    compile 'com.alibaba:fastjson:1.2.29'
 }

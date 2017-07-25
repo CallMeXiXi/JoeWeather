@@ -33,7 +33,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        Logger.d(Constants.FRAGMENT_NAME + getActivity().getResources().getClass().getName());
     }
 
 

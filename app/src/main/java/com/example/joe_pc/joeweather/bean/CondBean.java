@@ -8,28 +8,10 @@ import java.io.Serializable;
 
 public class CondBean implements Serializable {
 
-    private String code;
-    private String txt;
     private String codeD;
     private String codeN;
     private String txtD;
     private String txtN;
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setTxt(String txt) {
-        this.txt = txt;
-    }
-
-    public String getTxt() {
-        return txt;
-    }
 
     public void setCodeD(String codeD) {
         this.codeD = codeD;
