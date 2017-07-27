@@ -1,5 +1,7 @@
 package com.example.joe_pc.joeweather.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -8,9 +10,13 @@ import java.io.Serializable;
 
 public class CondBean implements Serializable {
 
+    @SerializedName("code_d")
     private String codeD;
+    @SerializedName("code_n")
     private String codeN;
+    @SerializedName("txt_d")
     private String txtD;
+    @SerializedName("txt_n")
     private String txtN;
 
     public void setCodeD(String codeD) {

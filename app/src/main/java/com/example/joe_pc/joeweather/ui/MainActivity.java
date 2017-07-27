@@ -26,7 +26,6 @@ import com.orhanobut.logger.Logger;
 
 public class MainActivity extends BaseAppCompatActivity implements LocationReceiverCallback {
 
-    private AppBarLayout mAppBarLayout;
     private CollapsingToolbarLayout mCtlLayout;
     private ViewPager mViewPager;
     private Toolbar mToolbar;
@@ -51,7 +50,6 @@ public class MainActivity extends BaseAppCompatActivity implements LocationRecei
 
     @Override
     public void initView() {
-//        mAppBarLayout = $(R.id.appbar_layout);
         mCtlLayout = $(R.id.ctl_toolbar);
         mViewPager = $(R.id.view_pager);
         mToolbar = $(R.id.toolbar);
@@ -75,11 +73,6 @@ public class MainActivity extends BaseAppCompatActivity implements LocationRecei
      * 给Toolbar创建菜单
      */
     private void initToolbarMenu() {
-//        mToolbar.setAlpha(0.0f);
-//        mToolbar.getBackground().setAlpha(200);
-//        mCtlLayout.setTitle("");
-
-
         mToolbar.setTitle(city);
         setSupportActionBar(mToolbar);
     }
@@ -99,7 +92,10 @@ public class MainActivity extends BaseAppCompatActivity implements LocationRecei
                 showShortToast("1");
                 break;
             case R.id.seven:
-                showShortToast("2");
+                Intent intent = new Intent(mActivity, ForecastActivity.class);
+                intent.putExtra(Constants.CITY_NAME, city);
+                intent.putExtra(Constants.IS_NETWORK_OK, isNetworkOk);
+                mActivity.startActivity(intent);
                 break;
             case R.id.city_manage:
                 showShortToast("3");
@@ -140,7 +136,12 @@ public class MainActivity extends BaseAppCompatActivity implements LocationRecei
 
     @Override
     public void doOnClick(int id) {
+        switch (id) {
+            case R.id.fb_add:
+                showShortToast("新增城市天气");
+                break;
 
+        }
     }
 
     /**

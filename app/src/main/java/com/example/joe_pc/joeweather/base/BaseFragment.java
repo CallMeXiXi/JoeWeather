@@ -70,6 +70,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         if (mAlert == null) {
             mAlert = new LoadingAlert(getActivity(), msg);
         }
+        mAlert.setTextViewMsg(msg);
         mAlert.show();
     }
 

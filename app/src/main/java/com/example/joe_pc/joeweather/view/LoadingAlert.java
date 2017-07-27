@@ -34,7 +34,7 @@ public class LoadingAlert extends AlertDialog {
     private void init(String msg) {
         setCancelable(true);
         setCanceledOnTouchOutside(false);
-        View view = LayoutInflater.from(mContext).inflate(R.layout.loading_alert_layout, null, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.loading_alert_layout, null);
         tvAlert = (TextView) view.findViewById(R.id.tv_alert);
         tvAlert.setText(msg);
         setView(view);

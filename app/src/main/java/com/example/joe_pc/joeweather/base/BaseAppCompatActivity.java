@@ -83,8 +83,8 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     }
 
     private void init() {
-        initData();
         initView();
+        initData();
         initListener();
     }
 

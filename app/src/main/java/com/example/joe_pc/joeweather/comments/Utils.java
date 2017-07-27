@@ -3,13 +3,24 @@
  */
 package com.example.joe_pc.joeweather.comments;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkInfo;
+import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.amap.api.location.AMapLocation;
 import com.example.joe_pc.joeweather.R;
+import com.orhanobut.logger.Logger;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * 辅助工具类
@@ -100,6 +111,12 @@ public class Utils {
         return -1;
     }
 
+    /**
+     * 获取天气图标
+     *
+     * @param code 图标代码
+     * @return
+     */
     public static int getWeatherIcon(int code) {
         int str = R.drawable.clear;
         switch (code) {
@@ -123,5 +140,59 @@ public class Utils {
                 break;
         }
         return str;
+    }
+
+
+    /**
+     * 根据长日期转换成 今天、明天、后天
+     *
+     * @param date 长日期
+     * @return
+     */
+    public static int setDateName(String date) {
+        int year = Integer.parseInt(date.substring(0, 4));
+        int month = Integer.parseInt(date.substring(5, 7));
+        int day = Integer.parseInt(date.substring(8, 10));
+        Date dateWeather = new Date(year, month, day);
+
+        Calendar calendarWeather = Calendar.getInstance();
+        calendarWeather.setTime(dateWeather);
+        Logger.d("calendarWeather__" + calendarWeather.get(Calendar.MONTH) + "__" + calendarWeather.get(Calendar.DATE));
+
+        Calendar calendarNow = Calendar.getInstance();
+        Logger.d("calendarNow___" + calendarNow.get(Calendar.MONTH) + "__" + calendarNow.get(Calendar.DATE));
+
+        if (calendarWeather.get(Calendar.YEAR) == calendarNow.get(Calendar.YEAR)
+                && calendarWeather.get(Calendar.MONTH) == calendarNow.get(Calendar.MONTH)
+                && calendarWeather.get(Calendar.DATE) == calendarNow.get(Calendar.DATE)) {
+            return R.string.today;
+        } else if (calendarWeather.get(Calendar.YEAR) == calendarNow.get(Calendar.YEAR)
+                && calendarWeather.get(Calendar.MONTH) == calendarNow.get(Calendar.MONTH)
+                && calendarWeather.get(Calendar.DATE) - calendarNow.get(Calendar.DATE) == 1) {
+            return R.string.tomorrow;
+        } else if (calendarWeather.get(Calendar.YEAR) == calendarNow.get(Calendar.YEAR)
+                && calendarWeather.get(Calendar.MONTH) == calendarNow.get(Calendar.MONTH)
+                && calendarWeather.get(Calendar.DATE) - calendarNow.get(Calendar.DATE) == 2) {
+            return R.string.day_after_tomorrow;
+        }
+        return R.string.today;
+    }
+
+    /**
+     * 设置状态栏颜色
+     *
+     * @param activity
+     * @param ColorStr
+     */
+    public static void setWindowStatusBarColor(Activity activity, String ColorStr) {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Window window = activity.getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(Color.parseColor(ColorStr));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

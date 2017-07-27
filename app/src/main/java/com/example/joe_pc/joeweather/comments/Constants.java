@@ -12,6 +12,7 @@ public class Constants {
     public static String CITY_OLD_TIME_FILE = "city_old_time_file";//存储时间文件
     public static String CITY_OLD_TIME = "city_old_time";//存储时间
     public static String LOCATION_RECEIVER = "com.example.joe_pc.joeweather.LocationCityReceiver";//定位广播
+    public static String IS_NETWORK_OK = "is_network_ok";//判断网络数据是否开启
     public static int NETWORK_DISCONNECTED = 0;//无网络
     public static int NETWORK_MOBILE = 1;//手机网络
     public static int NETWORK_WIFI = 2;//WIFI网络

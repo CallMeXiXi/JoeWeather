@@ -47,7 +47,6 @@ public class WeatherCache extends BaseCache {
                 orderDesc(WeatherDao.Properties.Id).
                 list();
         if (WeatherList.size() > 0) {
-            Logger.d("WeatherCache_getResult_getId: " + WeatherList.get(0).getId());
             String str = WeatherList.get(0).getResult();//.substring(1, WeatherList.get(0).getResult().length() - 1);
             list = (ArrayList<WeatherBean>) JSONArray.parseArray(str, RootWeatherBean.class).get(0).getWeather();
         }

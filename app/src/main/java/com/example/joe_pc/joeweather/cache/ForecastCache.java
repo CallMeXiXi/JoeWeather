@@ -1,10 +1,14 @@
 package com.example.joe_pc.joeweather.cache;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.alibaba.fastjson.JSONArray;
 import com.example.joe_pc.joeweather.base.WeatherApplication;
 import com.example.joe_pc.joeweather.bean.DailyForecastBean;
+import com.example.joe_pc.joeweather.bean.RootWeatherBean;
+import com.example.joe_pc.joeweather.bean.WeatherBean;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +50,8 @@ public class ForecastCache extends BaseCache {
                 orderDesc(ForecastDao.Properties.Id).
                 list();
         if (forecastList.size() > 0) {
-            list = (ArrayList<DailyForecastBean>) JSONArray.parseArray(forecastList.get(0).getResult(), DailyForecastBean.class);
+            ArrayList<RootWeatherBean> rootWeatherLists = (ArrayList<RootWeatherBean>) JSONArray.parseArray(forecastList.get(0).getResult(), RootWeatherBean.class);
+            list = (ArrayList<DailyForecastBean>) rootWeatherLists.get(0).getWeather().get(0).getDailyForecast();
         }
         return list;
     }
@@ -54,7 +59,7 @@ public class ForecastCache extends BaseCache {
     @Override
     public void addResult(String result) {
         Forecast forecastCacheBean = new Forecast();
-        forecastCacheBean.setResult(result);
+        forecastCacheBean.setResult("[" + result + "]");
         forecastCacheBean.setDate(System.currentTimeMillis());
         mForecastDao.insert(forecastCacheBean);
     }

@@ -2,7 +2,7 @@
     <string name="app_name">JoeWeather</string>
     <string name="alert">加载中...</string>
     <string name="share">分享</string>
-    <string name="seven">未来7天</string>
+    <string name="seven">未来3天</string>
     <string name="city_manage">城市管理</string>
     <string name="city_warn">城市预警</string>
     <string name="sure">确定</string>
@@ -10,4 +10,8 @@
     <string name="relocatCity">重新定位城市</string>
     <string name="no_network">没开网络还敢调戏朕...</string>
     <string name="dailt_forecast">短时预报</string>
+
+    <string name="today">今天</string>
+    <string name="tomorrow">明天</string>
+    <string name="day_after_tomorrow">后天</string>
 </resources>
